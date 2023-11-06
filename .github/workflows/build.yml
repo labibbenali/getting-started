@@ -10,4 +10,4 @@ jobs:
       - uses: docker/build-push-action@v5 # pour faire le build et push
         with:
           push: true
-          tags: getting-started:latest
+          tags: labibbenali/getting-started:latest
