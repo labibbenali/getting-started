@@ -7,7 +7,11 @@ jobs:
     steps:
       - uses: actions/checkout@v4 # recuperer le code de mon repo  
       - run: ls
+      - uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
       - uses: docker/build-push-action@v5 # pour faire le build et push
         with:
           push: true
-          tags: labibbenali/getting-started:latest
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/getting-started:latest
